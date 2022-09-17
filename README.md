@@ -1,4 +1,4 @@
-# README Generator
+# Team Profile Generator
 
   * [Description](#description)
   * [Installation](#installation)
@@ -9,7 +9,7 @@
   
   ## Description 
 
-  An app to create a professional looking README File
+ An app to create an HTML webpage that displays summaries of each employee for a software engineering team.  
 
   ## Installation
 
@@ -17,17 +17,15 @@
 
   ## Usage
 
-  https://drive.google.com/file/d/1nzv7_2UjM4wQ91c37coza3bFK_G277GS/view
-
-  Click video link for use
-  
+  Video link coming soon
 
   ## Languages
 
   This app was created using:
   
   JavaScript
-  Markdown
+  HTML
+  CSS
   Node.js
 
   ## Questions
