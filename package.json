@@ -4,7 +4,7 @@
   "description": "* [Description](#description)\r   * [Installation](#installation)\r   * [Usage](#usage)\r   * [Languages used](#languages)\r   * [Questions](#email)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
