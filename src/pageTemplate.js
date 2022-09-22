@@ -18,7 +18,7 @@ const generateManager = function (manager) {
                 <ul class="list-group list-group-flush">
                     <li class="id list-group-item">ID: ${manager.id}</li>
                     <li class="office-number list-group-item">Office Number:${manager.officeNumber}</li>
-                    <li href="mailto:${manager.email}" class="btn btn-primary">${manager.email}</a></li>
+                    <a href="mailto:${manager.email}" class="btn btn-primary" id="managerBtn">Email: ${manager.email}</a>
                 </ul>
                 
             </div>
@@ -34,11 +34,11 @@ const generateIntern = function (intern) {
             <h2 class="card-header bg-secondary text-white text-center">${intern.name}</h3>
             <div class="card-body">
                 <h5 class="card-subtitle mb-2 text-muted">Intern</h5>
-                <i class="material-icons-outlined" style="font-size:48px;">badge</i>
+                <i class="material-icons" style="font-size:48px;">badge</i>
                 <ul class="list-group list-group-flush">
                     <li class="id list-group-item">ID: ${intern.id}</li>
                     <li class="school list-group-item">School: ${intern.school}</li>
-                    <li href="mailto:${intern.email}" class="btn btn-primary">${intern.email}</a></li>
+                    <a href="mailto:${intern.email}" class="btn btn-primary" id="internBtn">Email: ${intern.email}</a>
                 </ul>
                 
             </div>
@@ -55,11 +55,11 @@ const generateEngineer = function (engineer) {
             <h2 class="card-header bg-secondary text-white text-center">${engineer.name}</h3>
             <div class="card-body">
                 <h5 class="card-subtitle mb-2 text-muted">Engineer</h5>
-                <i class="material-icons-outlined" style="font-size:48px;">diamond</i>
+                <i class="material-icons" style="font-size:48px;">diamond</i>
                 <ul class="list-group list-group-flush">
                     <li class="id list-group-item">ID: ${engineer.id}</li>
-                    <li href="https//github.com/${engineer.github}" class="btn btn-primary mb-2">${engineer.github}</a></li>
-                    <li href="mailto:${engineer.email}" class="btn btn-primary">${engineer.email}</a></li>
+                    <a href="https://github.com/${engineer.github}" class="btn btn-primary mb-2" id="engineerGithub"> Github ${engineer.github}</a>
+                    <a href="mailto:${engineer.email}" class="btn btn-primary" id="engineerBtn">Email: ${engineer.email}</a>
                 </ul>
             </div>
         </div>

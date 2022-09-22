@@ -19,6 +19,10 @@
 
   Video link coming soon
 
+  ## Screen Shot
+
+  ![This is an image](./dist/team_profile_generator.png)
+
   ## Languages
 
   This app was created using:
