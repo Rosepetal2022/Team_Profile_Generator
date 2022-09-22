@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./src/pageTemplate')
 
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -69,7 +70,7 @@ const team = () => {
                 managerQuestions();
                 break;
             default:
-                writeToFile();
+                writeToFile(teamArray.toString());
             
         }
     })
@@ -128,7 +129,7 @@ const internQuestions = () => {
         },
 
     ]).then(answers => {
-        const intern = new Intern(answers.internName, answers.internid, answers.internEmail, answers.internSchool);
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
         teamArray.push(intern);
         team();
     });

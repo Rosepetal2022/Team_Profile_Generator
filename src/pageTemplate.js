@@ -7,105 +7,128 @@ const Manager = require('../lib/Manager')
 
 //Team cards 
 //Manager card
-const generateManager = function(manager) {
+const generateManager = function (manager) {
     return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-body"
-                <h3 class="card-title>${manager.name}</h3>
-                <h4 class="card-title>Manager</h4>
-                <div class="card-text">
-                    <p class="id">ID:${manager.id}</p>
-                    <p class="office-number">Office Number:${manager.officeNumber}
-                    <a href="mailto:${manager.email}" class="btn btn-primary">${manager.email}</a>
-                </div>
+        <div class="card" style="width: 16rem;">
+            <h2 class="card-header bg-secondary text-white text-center">${manager.name}</h3>
+            <div class="card-body">
+                <h5 class="card-subtitle mb-2 text-muted">Manager</h5>
+                <i class="material-icons" style="font-size:48px;">pending_actions</i>
+                <ul class="list-group list-group-flush">
+                    <li class="id list-group-item">ID: ${manager.id}</li>
+                    <li class="office-number list-group-item">Office Number:${manager.officeNumber}</li>
+                    <li href="mailto:${manager.email}" class="btn btn-primary">${manager.email}</a></li>
+                </ul>
+                
             </div>
         </div>
     </div>`
-}
+};
 
 //Intern card
-const generateIntern = function(intern) {
+const generateIntern = function (intern) {
     return `
-    <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-body"
-                <h3 class="card-title>${intern.internName}</h3>
-                <h4 class="card-title>Intern</h4>
-                <div class="card-text">
-                    <p class="id">ID:${intern.internId}</p>
-                    <p class="school">School:${intern.internSchool}
-                    <a href="mailto:${intern.internEmail}" class="btn btn-primary">${intern.internEmail}</a>
-                </div>
+        <div class="col-4 mt-4">
+        <div class="card" style="width: 16rem;">
+            <h2 class="card-header bg-secondary text-white text-center">${intern.name}</h3>
+            <div class="card-body">
+                <h5 class="card-subtitle mb-2 text-muted">Intern</h5>
+                <i class="material-icons-outlined" style="font-size:48px;">badge</i>
+                <ul class="list-group list-group-flush">
+                    <li class="id list-group-item">ID: ${intern.id}</li>
+                    <li class="school list-group-item">School: ${intern.school}</li>
+                    <li href="mailto:${intern.email}" class="btn btn-primary">${intern.email}</a></li>
+                </ul>
+                
             </div>
         </div>
-    </div>`
-}
+    </div>
+    `
+};
 
 //Engineer card
-const generateEngineer = function(engineer) {
-    return`
-    <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-body"
-                <h3 class="card-title>${engineer.engineerName}</h3>
-                <h4 class="card-title>Engineer</h4>
-                <div class="card-text">
-                    <p class="id">ID:${engineer.engineerId}</p>
-                    <a href="mailto:${engineer.engineerEmail}" class="btn btn-primary">${engineer.engineerEmail}</a>
-                    <a href="https://github.com/${engineer.engineerGithub}" class="btn btn-primary">${engineer.engineerGithub}</a>
-                </div>
+const generateEngineer = function (engineer) {
+    return `
+       <div class="col-4 mt-4">
+        <div class="card" style="width: 16rem;">
+            <h2 class="card-header bg-secondary text-white text-center">${engineer.name}</h3>
+            <div class="card-body">
+                <h5 class="card-subtitle mb-2 text-muted">Engineer</h5>
+                <i class="material-icons-outlined" style="font-size:48px;">diamond</i>
+                <ul class="list-group list-group-flush">
+                    <li class="id list-group-item">ID: ${engineer.id}</li>
+                    <li href="https//github.com/${engineer.github}" class="btn btn-primary mb-2">${engineer.github}</a></li>
+                    <li href="mailto:${engineer.email}" class="btn btn-primary">${engineer.email}</a></li>
+                </ul>
             </div>
         </div>
-    </div>`
-}
+    </div>
+    `
+};
 
 
 
 generateHTML = (data) => {
-    console.log('inside generate html' + data)
+    console.log('inside generate html' + data.toString())
 
     let pageArray = [];
 
-    for(let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         console.log(data[i])
-        const employee = data[i];
-        const role = employee.getRole();
-        if(role === 'Manager') {
+        let employee = data[i];
+        console.log('data' + employee.toString())
+        const role = employee.role
+        if (role === 'Manager') {
             const managerCard = generateManager(employee);
             pageArray.push(managerCard)
         }
 
-        if(role === 'Engineer') {
+        if (role === 'Engineer') {
             const engineerCard = generateEngineer(employee);
             pageArray.push(engineerCard)
         }
 
-        if(role === 'Intern') {
+        if (role === 'Intern') {
             const internCard = generateIntern(employee)
             pageArray.push(internCard)
         }
     }
     let teamCards = pageArray.join('');
     generatePage(teamCards);
-    console.log('inside generateHTML' + teamCards)
+    return generatePage(teamCards);
 }
 
-const generatePage = (teamCards) => {  
-    console.log(teamCards)     
-return `<!DOCTYPE html>
+const generatePage = (teamCards) => {
+    console.log('inside generatePage' + teamCards)
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Team Profile</title>
 </head>
+    <header>
+        <nav class="navbar navbar-dark bg-dark py-5" id="navbar">
+            <h1 class="text-center h1 display-3 text-light" id="navbar-text">Team Profile</h1>
+        </nav>
+    </header>
 <body>
-${teamCards}
+<div class="container">
+    <div class="row justify-content-center">
+        ${teamCards}
+    </div>
+</div>
     
 </body>
-</html>`
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
+`
 }
 
 module.exports = generateHTML;
