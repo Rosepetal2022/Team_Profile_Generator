@@ -20,7 +20,6 @@ const generateManager = function (manager) {
                     <li class="office-number list-group-item">Office Number:${manager.officeNumber}</li>
                     <a href="mailto:${manager.email}" class="btn btn-primary" id="managerBtn">Email: ${manager.email}</a>
                 </ul>
-                
             </div>
         </div>
     </div>`
@@ -40,7 +39,6 @@ const generateIntern = function (intern) {
                     <li class="school list-group-item">School: ${intern.school}</li>
                     <a href="mailto:${intern.email}" class="btn btn-primary" id="internBtn">Email: ${intern.email}</a>
                 </ul>
-                
             </div>
         </div>
     </div>
@@ -68,16 +66,13 @@ const generateEngineer = function (engineer) {
 };
 
 
-
+//function that recieves the data from index.js
+//pushes the info to each html card to be created
 generateHTML = (data) => {
-    console.log('inside generate html' + data.toString())
-
     let pageArray = [];
 
     for (let i = 0; i < data.length; i++) {
-        console.log(data[i])
         let employee = data[i];
-        console.log('data' + employee.toString())
         const role = employee.role
         if (role === 'Manager') {
             const managerCard = generateManager(employee);
@@ -99,8 +94,8 @@ generateHTML = (data) => {
     return generatePage(teamCards);
 }
 
+//boiler plate html template 
 const generatePage = (teamCards) => {
-    console.log('inside generatePage' + teamCards)
     return `<!DOCTYPE html>
 <html lang="en">
 <head>

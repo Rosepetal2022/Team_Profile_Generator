@@ -17,7 +17,15 @@
 
   ## Usage
 
-  Video link coming soon
+  Video 1- Test suites and the test results:
+  https://drive.google.com/file/d/10tGot_dIdU431TFtyni5-iYdo9-k1H6r/view
+
+  Video 2- The prompt questions for the employee team:
+  https://drive.google.com/file/d/1yo3WnDdaMrIb3el61TAucmmsWleC6Cl5/view
+
+  video 3- The generated page 
+  https://drive.google.com/file/d/1SoPlfQL72erVHB-tQuJPGsigGjF1kcVf/view
+
 
   ## Screen Shot
 

@@ -1,12 +1,14 @@
+//require the node dependencies 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHTML = require('./src/pageTemplate')
 
+//variables to require files
+const generateHTML = require('./src/pageTemplate')
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-//const pageTemplate = require('./src/pageTemplate');
+
 
 
 //use this array to push all the data from the prompt questions
@@ -41,8 +43,6 @@ const managerQuestions = () => {
         const manager = new Manager(name, id, email, officeNumber);
 
         teamArray.push(manager);
-        console.log(manager);
-        console.log(teamArray);
         team()
     })
 };
@@ -76,6 +76,7 @@ const team = () => {
     })
 }
 
+//engineer questions 
 const engineerQuestions = () => {
     return inquirer.prompt ([
         {
@@ -105,6 +106,7 @@ const engineerQuestions = () => {
     })
 }
 
+//intern questions
 const internQuestions = () => {
     return inquirer.prompt ([
         {
@@ -135,10 +137,9 @@ const internQuestions = () => {
     });
 }
 
+//write file function to send the data to the template page to create the index.html
 const writeToFile = () => {
-    console.log(teamArray)
     const employeeProfiles = generateHTML(teamArray)
-    console.log('inside write to file' + employeeProfiles)
     fs.writeFile("./dist/index.html", employeeProfiles, err => {
         if(err) {
             console.log(err);
@@ -149,5 +150,6 @@ const writeToFile = () => {
     })
 };
 
+//calling the manager questions to start the app
 managerQuestions()
     
