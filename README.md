@@ -35,10 +35,10 @@
 
   This app was created using:
   
-  JavaScript
-  HTML
-  CSS
-  Node.js
+  -JavaScript
+  -HTML
+  -BootStrap
+  -Node.js
 
   ## Questions
 
